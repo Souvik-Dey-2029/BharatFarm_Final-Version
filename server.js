@@ -82,7 +82,25 @@ const server = http.createServer(async (req, res) => {
         req.on('data', chunk => body += chunk.toString());
         req.on('end', async () => {
             try {
-                const { text, language = 'en', history = [] } = JSON.parse(body);
+                const payload = JSON.parse(body);
+                
+                // Route 1: Generic Proxy Format (used by config.js, scanner)
+                if (payload.messages && !payload.text) {
+                    console.log(`\n[/api/chat] Proxying generic AI request with ${payload.messages.length} messages`);
+                    const aiResponseText = await callOpenAI(payload.messages);
+                    
+                    // The frontend config.js expects an OpenRouter-style JSON response:
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({
+                        choices: [{
+                            message: { content: aiResponseText }
+                        }]
+                    }));
+                    return;
+                }
+
+                // Route 2: Legacy KrishiBot Format (used by older chat components)
+                const { text, language = 'en', history = [] } = payload;
                 console.log(`\n[/api/chat] Received: "${text}" (lang: ${language})`);
 
                 const systemNote = `You are KrishiBot, a friendly AI for Indian farmers on BharatFarm. Respond in ${language}. Keep answers very short (2-3 sentences max) as they will be read aloud.`;
