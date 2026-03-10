@@ -32,6 +32,20 @@
   animation: none;
 }
 
+/* Base style for Talk to AI Button (Desktop) */
+.voice-fab {
+  display: none !important;
+  bottom: 105px !important; /* Stacked right above desktop Chatbot Toggle */
+  right: 28px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  z-index: 9999 !important;
+}
+
+.app-container.active ~ .voice-fab,
+body:has(.app-container.active) .voice-fab {
+  display: flex !important;
+}
+
 #chatbotToggle .chat-badge {
   position: absolute;
   top: -4px;
@@ -647,6 +661,10 @@
     height: 56px;
   }
 
+  .voice-fab {
+     z-index: 10000 !important;
+  }
+
   #chatbotPanel {
     bottom: var(--bottom-nav-height);
     right: 0;
@@ -657,6 +675,8 @@
     max-height: 88vh;
     border-radius: 20px 20px 0 0;
     transform-origin: bottom center;
+    z-index: 10000; /* Raise above header */
+    padding-top: env(safe-area-inset-top);
   }
 }
 
