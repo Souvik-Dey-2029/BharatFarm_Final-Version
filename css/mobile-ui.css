@@ -350,10 +350,18 @@
     
     #chatbotPanel {
         bottom: calc(var(--bottom-nav-height) + 80px) !important;
-        right: 10px !important;
-        left: 10px !important;
-        width: auto !important;
-        max-width: none !important;
+        right: 0 !important;
+        left: 0 !important;
+        margin: 0 auto !important;
+        width: 95% !important;
+        max-width: 400px !important;
+    }
+
+    #chatbotPanel:not(.chat-hidden) ~ .voice-fab,
+    body:has(#chatbotPanel:not(.chat-hidden)) .voice-fab {
+        right: auto !important;
+        left: 15px !important;
+        bottom: calc(var(--bottom-nav-height) + 15px) !important;
     }
 
     /* ─── Utility ─── */

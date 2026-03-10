@@ -664,20 +664,6 @@ body:has(.app-container.active) .voice-fab {
   .voice-fab {
      z-index: 10000 !important;
   }
-
-  #chatbotPanel {
-    bottom: var(--bottom-nav-height);
-    right: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 88vh;
-    max-height: 88vh;
-    border-radius: 20px 20px 0 0;
-    transform-origin: bottom center;
-    z-index: 10000; /* Raise above header */
-    padding-top: env(safe-area-inset-top);
-  }
 }
 
 /* ── Fullscreen Mode ── */
