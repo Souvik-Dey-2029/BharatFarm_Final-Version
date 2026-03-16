@@ -194,6 +194,10 @@ canvas {
     left: 50%;
     transform: translate(-50%, -50%);
     object-fit: cover;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
+    /* HD Enhancement filters */
+    filter: contrast(1.15) brightness(1.08) saturate(1.1);
 }
 
 /* --------------------------------------------------------------------------

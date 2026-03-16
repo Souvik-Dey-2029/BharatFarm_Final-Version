@@ -109,6 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const winWidth = window.innerWidth;
             const winHeight = window.innerHeight;
 
+            context.imageSmoothingEnabled = true;
+            context.imageSmoothingQuality = "high";
             context.clearRect(0, 0, canvas.width, canvas.height);
 
             // Calculate "Cover" logic manually to ensure maximum sharpness
@@ -129,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 offsetY = 0;
             }
 
-            context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+            context.drawImage(img, Math.floor(offsetX), Math.floor(offsetY), Math.ceil(drawWidth), Math.ceil(drawHeight));
         }
     }
 
