@@ -17,21 +17,13 @@ section {
     background: var(--bg-primary);
 }
 
-/* ── Marketplace — saffron sunrise (commerce, India flag) */
+/* ── Marketplace — unified background matching rest of app */
 #marketplace {
-    background:
-        radial-gradient(ellipse at 0% 0%, rgba(255,153,51,0.16) 0%, transparent 50%),
-        radial-gradient(ellipse at 100% 100%, rgba(11,61,29,0.16) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(197,160,89,0.08) 0%, transparent 60%),
-        var(--bg-primary);
+    background: var(--bg-primary);
 }
 
 [data-theme="dark"] #marketplace {
-    background:
-        radial-gradient(ellipse at 0% 0%, rgba(255,153,51,0.20) 0%, transparent 50%),
-        radial-gradient(ellipse at 100% 100%, rgba(11,61,29,0.28) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(197,160,89,0.10) 0%, transparent 60%),
-        var(--bg-primary);
+    background: var(--bg-primary);
 }
 
 /* ── Scanner — teal/violet AI theme */
